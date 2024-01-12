@@ -9,6 +9,27 @@
 // getEmailDomain("t.mellink@novi.nl") geeft novi.nl
 // getEmailDomain("a.wiersma@outlook.com") geeft outlook.com
 
+//stapjes
+//declare een functie met parameter een e-mail adres
+
+
+//todo gevraagd in huiswerkklas geldigheid email checken komt in de volgende opdrachten! hier hoef je alleen aaaa.nl uit de string te vissen
+//controleer of het format klopt:
+//hak het op in stukjes
+//een e-mail adres bevat
+//recipient name (stuk voor @)
+//domeinnaam
+//toplevel domain.
+//regels: het bevat een @
+//@ is niet het eerste teken
+//@ is hooguit het op 4 na laatste teken (kortst mogelijke domeinnaam is a.aa )
+//het bevat een '.'
+// '.' is niet het eerste teken
+// '.' is hooguit het twee na laatste teken
+//als het adres geldig is , return het stuk na de @
+//als het adres niet-gelidg is , print een melding " ongeldig e-mail adres"
+
+
 
 
 
@@ -34,3 +55,5 @@
 // checkEmailValidity("n.eekenanovi.nl") geeft false - want geen @
 // checkEmailValidity("n.eeken@novinl.") geeft false - want de punt mag niet als laatst
 // checkEmailValidity("tessmellink@novi,nl") geeft false - want er staat een komma in
+
+//todo: beide scripts koppelen aan een index.html en testen of ze in de console draaien
