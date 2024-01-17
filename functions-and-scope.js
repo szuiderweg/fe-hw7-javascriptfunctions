@@ -122,20 +122,14 @@ function averageGrade2(cijfers){
 
     let average = totaal/cijfers.length;//het gemiddelde "average" berekenen: deel het totaal door het aantal cijfers
 
-    //afronden op 2 decimalen. Math.round() rondt af op integers, maar num.toFixed(aantal decimalen) functie kan wel op afronden op een decimaal getal
-    average = average.toFixed(2);
-    return average;//return average uit functie
+    //afronden op 2 decimalen. Math.round() rondt af op integers, maar num.toFixed(aantal decimalen) functie kan wel op afronden op een decimaal getal.Return deze waarde uit de functie
+    return average.toFixed(2);
 }
 
 console.log("het afgeronde gemiddelde is "+ averageGrade2(grades));
 
-
-
-
 //todo bonusopdracht
-
-
-/* Bonusopdracht: hoogste cijfer */
+// /* Bonusopdracht: hoogste cijfer */
 
 /* 3a: Script schrijven  */
 // Schrijf een script die op basis van de grades array (hierboven) checkt wat het hoogst behaalde cijfer is. Je mag hier geen bestaande methoden voor gebruiken. Schrijf de stapjes eerst uit en vraag jezelf de volgende dingen af:
