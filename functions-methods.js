@@ -15,7 +15,8 @@ function getEmailDomainName(email){
     const fragments = email.split("@");//gebruik de method String.split om het email adress op te knippen in stukjes met "@" als seperator
     return fragments[1];//de fragments array bestaat altijd uit 2 entries omdat een emailadress altijd precies 1 "@" heeft. De domeinnaam is dus altijd de String op indexwaarde 1.
 }
-console.log("output voor opdracht 1");
+console.log("");//witregel printen
+console.log("output voor opdracht 2.1");
 console.log(getEmailDomainName("n.eeken@novi-education.nl"));
 console.log(getEmailDomainName("t.mellink@novi.nl"));
 console.log(getEmailDomainName("a.wiersma@outlook.com"));
@@ -47,7 +48,7 @@ function typeOfEmail(email)
     }
 }
 
-console.log("output voor opdracht 2");
+console.log("output voor opdracht 2.2");
 console.log(typeOfEmail("n.eeken@novi-education.nl"));
 console.log(typeOfEmail("t.mellink@novi.nl"));
 console.log(typeOfEmail("novi.nlaapjesk@outlook.com"));
@@ -104,7 +105,7 @@ function checkEmailValidity(possibleEmail) {
     return valid = true;//als deze regel wordt bereikt, zijn alle checks geslaagd en is de String in de functieparameter dus een geldig emailadres
 }
 
-console.log("output van opdracht 3")
+console.log("output van opdracht 2.3")
 // checkEmailValidity("n.eeken@novi.nl") geeft true - want @ en punt op de juiste plek
 console.log(checkEmailValidity("n.eeken@novi.nl"));
 // checkEmailValidity("tessmellink@novi.nl") geeft true - want @ en punt op de juiste plek
@@ -116,14 +117,4 @@ console.log(checkEmailValidity("n.eeken@novinl."));
 // checkEmailValidity("tessmellink@novi,nl") geeft false - want er staat een komma in
 console.log(checkEmailValidity("tessmellink@novi,nl"));
 
-
-
-
-
-
-
-
-
-
-//todo beide scripts koppelen aan een index.html en testen of ze in de console draaien
 

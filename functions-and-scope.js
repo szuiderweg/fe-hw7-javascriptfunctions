@@ -31,7 +31,7 @@ for (let n = 0 ;n < grades.length;n++)
         specialeDiplomas++;
     }
 }
-console.log('aantal speciale diploma\'s: '+ specialeDiplomas);
+console.log('opdracht1.1: het aantal speciale diploma\'s: '+ specialeDiplomas);
 console.log(' ');//witregel
 /*  1b: Omschrijven tot een herbruikbare functie   */
 // Schrijf een functie genaamd cumLaude, die een array van cijfers verwacht (zoals grades) en het aantal Cum laude studenten teruggeeft. Gebruik hiervoor jouw antwoord van 1a.
@@ -82,6 +82,8 @@ for(let n = 0;n < grades.length;n++)
 }
 const average = totaal/grades.length;//deel het totaal door het aantal cijfers, dit is het gemiddelde
 
+console.log("");//witregel
+console.log("opdracht 1.2");//witregel
 console.log('het gemiddelde cijfer is '+average);//print het gemiddelde
 
 /* 2b: Omschrijven tot een herbruikbare functie */
@@ -140,6 +142,23 @@ console.log("het afgeronde gemiddelde is "+ averageGrade2(grades));
 
 // ---- Verwachte uitkomst: 9
 
+//stapjes:
+//1: declareer een variabele waar het hoogste cijfer in komt te staan en geef die een beginwaarde van 0
+let topscore =0;
+for(let n =0;n < grades.length;n++)//2: ga (in een lus) alle waarden in de cijferlijst af. Check bij iedere waarde of deze groter is dan de waarde in het hoogstecijfer tot nu toe.
+{
+    if(grades[n] >topscore)//Zo ja, dan wordt dit de nieuwe waarde van het hoogste cijfer. Zo nee, doe niks.
+    {
+        topscore = grades[n];
+    }
+}
+//3: na de lus, log het hoogste cijfer in de console
+console.log("");
+console.log("Bonus opdracht 1.3")
+console.log("de hoogste score is een "+topscore);
+
+
+
 
 /* 3b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd highestGrade, die een array van cijfers verwacht (zoals grades) en het hoogste cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 3a.
@@ -151,4 +170,22 @@ console.log("het afgeronde gemiddelde is "+ averageGrade2(grades));
 // highestGrade([6, 4, 5]) geeft 6
 // highestGrade([8, 9, 4, 6, 10]) geeft 10
 
-//
+function highestGrade(grades)
+{
+    let topscore =0;
+    for(let n =0;n < grades.length;n++)
+    {
+        if(grades[n] >topscore)
+        {
+            topscore = grades[n];
+        }
+    }
+    return topscore;
+}
+
+console.log("");
+console.log("Bonus opdracht 3b hier zijn de hoogste cijfers mbv de functie highestGrade");
+console.log(highestGrade(grades));
+console.log(highestGrade([6, 4, 5]));
+console.log(highestGrade([8, 9, 4, 6, 10]));
+
