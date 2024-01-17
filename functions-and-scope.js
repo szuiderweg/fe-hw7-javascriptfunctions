@@ -16,7 +16,23 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 6
 
+//stapjes:
+//begin met aantal speciale diploma's = 0
+// voor iedere waarde van grades:
+//check of het groter/gelijk is aan 8
+// zo ja, maak het aantal speciale dimploma's eentje hoger
+//print het aantal speciale diploma's
 
+let specialeDiplomas = 0;
+for (let n = 0 ;n < grades.length;n++)
+{
+    if(grades[n] >= 8 )
+    {
+        specialeDiplomas++;
+    }
+}
+console.log('opdracht1.1: het aantal speciale diploma\'s: '+ specialeDiplomas);
+console.log(' ');//witregel
 /*  1b: Omschrijven tot een herbruikbare functie   */
 // Schrijf een functie genaamd cumLaude, die een array van cijfers verwacht (zoals grades) en het aantal Cum laude studenten teruggeeft. Gebruik hiervoor jouw antwoord van 1a.
 // Zorg ervoor dat jouw functie ook werkt als we een andere array met eindcijfers willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
@@ -27,7 +43,21 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
 
-
+function cumLaude(cijfers){
+    let specialeDiplomas = 0;
+    for (let n = 0 ;n < cijfers.length;n++)
+    {
+        if(cijfers[n] >= 8 )
+        {
+            specialeDiplomas++;
+        }
+    }
+    return specialeDiplomas;
+}
+console.log('nu met de cumLaude function:')
+console.log(cumLaude(grades));
+console.log(cumLaude([6, 4, 5]));
+console.log(cumLaude([8, 9, 4, 6, 10]));
 
 
 /* Opdracht  2: Gemiddeld cijfer */
@@ -41,7 +71,20 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Log het antwoord in de terminal.
 
 // ---- Verwachte uitkomst: 6.642857142857143
+//gemiddelde is de som van alle cijfers gedeeld door het aantal cijfers.
+//stapjes: neem ieder getal uit grades en tel het op bij een totaal
+//deel het totaal door het aantal cijfers
 
+let totaal = 0;//de totale score begint bij 0
+for(let n = 0;n < grades.length;n++)
+{
+    totaal += grades[n];//tel ieder cijfer uit het grades array op bij het totaal
+}
+const average = totaal/grades.length;//deel het totaal door het aantal cijfers, dit is het gemiddelde
+
+console.log("");//witregel
+console.log("opdracht 1.2");//witregel
+console.log('het gemiddelde cijfer is '+average);//print het gemiddelde
 
 /* 2b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd averageGrade, die een array van cijfers verwacht (zoals grades) en het gemiddelde cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 2a.
@@ -53,15 +96,42 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // averageGrade([6, 4, 5]) geeft xxxx
 // averageGrade([8, 9, 4, 6, 10]) geeft xxxx
 
+function averageGrade(cijfers){
+    let totaal = 0;//de totale score begint bij 0
+    for(let n = 0;n < cijfers.length;n++)
+    {
+        totaal += cijfers[n];//tel ieder cijfer uit het grades array op bij het totaal
+    }
+   return totaal/cijfers.length;//deel het totaal door het aantal cijfers en spuug deze waarde uit de functie
+}
+
+console.log('het gemiddelde cijfer berekend met de functie is '+ averageGrade(grades));//print het gemiddelde
+console.log('het gemiddelde cijfer berekend met de functie is '+ averageGrade([6, 4, 5]));//print het gemiddelde
+console.log('het gemiddelde cijfer berekend met de functie is '+ averageGrade([8, 9, 4, 6, 10]));//print het gemiddelde
+
 
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
 
+//nieuwe versie van averageGrade
+function averageGrade2(cijfers){
+    let totaal = 0;//de totale score begint bij 0
+    for(let n = 0;n < cijfers.length;n++)
+    {
+        totaal += cijfers[n];//tel ieder cijfer uit het grades array op bij het totaal
+    }
 
+    let average = totaal/cijfers.length;//het gemiddelde "average" berekenen: deel het totaal door het aantal cijfers
 
+    //afronden op 2 decimalen. Math.round() rondt af op integers, maar num.toFixed(aantal decimalen) functie kan wel op afronden op een decimaal getal.Return deze waarde uit de functie
+    return average.toFixed(2);
+}
 
-/* Bonusopdracht: hoogste cijfer */
+console.log("het afgeronde gemiddelde is "+ averageGrade2(grades));
+
+//todo bonusopdracht
+// /* Bonusopdracht: hoogste cijfer */
 
 /* 3a: Script schrijven  */
 // Schrijf een script die op basis van de grades array (hierboven) checkt wat het hoogst behaalde cijfer is. Je mag hier geen bestaande methoden voor gebruiken. Schrijf de stapjes eerst uit en vraag jezelf de volgende dingen af:
@@ -71,6 +141,23 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Log het antwoord in de terminal.
 
 // ---- Verwachte uitkomst: 9
+
+//stapjes:
+//1: declareer een variabele waar het hoogste cijfer in komt te staan en geef die een beginwaarde van 0
+let topscore =0;
+for(let n =0;n < grades.length;n++)//2: ga (in een lus) alle waarden in de cijferlijst af. Check bij iedere waarde of deze groter is dan de waarde in het hoogstecijfer tot nu toe.
+{
+    if(grades[n] >topscore)//Zo ja, dan wordt dit de nieuwe waarde van het hoogste cijfer. Zo nee, doe niks.
+    {
+        topscore = grades[n];
+    }
+}
+//3: na de lus, log het hoogste cijfer in de console
+console.log("");
+console.log("Bonus opdracht 1.3")
+console.log("de hoogste score is een "+topscore);
+
+
 
 
 /* 3b: Omschrijven tot een herbruikbare functie */
@@ -82,3 +169,23 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // highestGrade(grades) geeft 9
 // highestGrade([6, 4, 5]) geeft 6
 // highestGrade([8, 9, 4, 6, 10]) geeft 10
+
+function highestGrade(grades)
+{
+    let topscore =0;
+    for(let n =0;n < grades.length;n++)
+    {
+        if(grades[n] >topscore)
+        {
+            topscore = grades[n];
+        }
+    }
+    return topscore;
+}
+
+console.log("");
+console.log("Bonus opdracht 3b hier zijn de hoogste cijfers mbv de functie highestGrade");
+console.log(highestGrade(grades));
+console.log(highestGrade([6, 4, 5]));
+console.log(highestGrade([8, 9, 4, 6, 10]));
+
